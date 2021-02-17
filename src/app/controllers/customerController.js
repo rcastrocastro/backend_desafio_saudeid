@@ -39,7 +39,9 @@ router.post('/', async (req, res) => {
 
 router.put('/:customerId', async (req, res) => {
   try {
-    const customer = await Customer.findByIdAndUpdate(req.params.customerId, req.body).populate('user');
+    const customer = await Customer.findByIdAndUpdate(req.params.customerId, req.body, { 
+      new: true 
+    }).populate('user');
 
     return res.send({ customer });
     
