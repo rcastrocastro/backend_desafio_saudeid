@@ -28,7 +28,7 @@ const CustomerSchema = new mongoose.Schema({
   },
   gender: {
     type: String,
-    possibleValues: ['male','feminine'],
+    possibleValues: ['male','female'],
     require: [true, 'Oops! É obrigatório selecionar seu gênero.'],
   },
   marital_status: {
