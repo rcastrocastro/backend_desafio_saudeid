@@ -42,7 +42,7 @@ const CustomerSchema = new mongoose.Schema({
   },
   how_many: {
     type: String,
-    possibleValues: ['1', '2', 'Mais que 3']
+    possibleValues: ['none', 'one', 'two', 'three', 'More than three']
   },
   address: {
     zip_code: {
