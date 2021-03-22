@@ -1,8 +1,7 @@
 const Question = require('../app/models/question')
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://rootdesafioqa:SaudeiDdesafioqa@192.168.99.100:27017/saudeiddesafioqa', {
-  // useMongoClient: true,
+mongoose.connect('mongodb://rootdesafioqa:SaudeiDdesafioqa@127.0.0.1:27017/saudeiddesafioqa', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
