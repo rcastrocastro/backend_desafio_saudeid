@@ -1,0 +1,77 @@
+[
+  {
+    "question":"Comando para criação da estrutura do projeto no Cucumber?",
+    "correctAnswer":4,
+    "options":["rspec --start","gherkin --init","cucumber --start","cucumber --init","ruby --start"]
+  },
+  {
+    "question":"Qual o nome do gerenciador de pacotes do Ruby?",
+    "correctAnswer":2,
+    "options":["npm","bundler","yarn","rubler","ant"]
+  },
+  {
+    "question":"Comando para instalar dependências do projeto em Ruby?",
+    "correctAnswer":5,
+    "options":["rspec install","bundle start","ruby start","npm init","bundle install"]
+  },
+  {
+    "question":"Complete com o termo correto. cucumber ____ @cenario1,@cenario2,@cenario3",
+    "correctAnswer":2,
+    "options":["-keys","--tags","-scene","--keys","-tags"]
+  },
+  {
+    "question":"Executados antes ou depois de iniciar a execução de um cenário",
+    "correctAnswer":3,
+    "options":["setup","precode","hooks","kit","master"]
+  },
+  {
+    "question":"São tipos de reports gerados durante a execução",
+    "correctAnswer":1,
+    "options":["Pretty e Progress","Report e Resume","Beauty e Resume","Progress e Report","Dynamic e Resume"]
+  },
+  {
+    "question":"Comando para gerar relatório no Capybara",
+    "correctAnswer":2,
+    "options":["--resume","--out report","--ruby text","--out init","--bundle"]
+  },
+  {
+    "question":"A que arquivo o comando gem install faz referência?",
+    "correctAnswer":5,
+    "options":["rspec","helper","index","hooks","gemfile"]
+  },
+  {
+    "question":"Comando para acessar uma url",
+    "correctAnswer":2,
+    "options":["go_to","visit","browser","url_to","flow"]
+  },
+  {
+    "question":"Usado para verificar se o texto existe no elemento",
+    "correctAnswer":3,
+    "options":["it_content?","fill_in","has_content?","npm_in","fill_content?"]
+  },
+  {
+    "question":"Como você escreve 'Hello World' em uma caixa de alerta?",
+    "correctAnswer":2,
+    "options":["msg('Hello World');","alert('Hello World');","alertBox('Hello World');","print('Hello World');","show('Hello World');"]
+  },
+  {
+    "question":"Como você cria uma função em JavaScript?",
+    "correctAnswer":3,
+    "options":["function:myFunction()","function = myFunction()","function myFunction()","function = new myFunction()","function = new 'myFunction()'"]
+  },
+  {
+    "question":"Como escrever uma instrução IF em JavaScript?",
+    "correctAnswer":1,
+    "options":["if (i == 5)","if i = 5 then","if i == 5 then","if i = 5 :","case i = 5 then"]
+  },
+  {
+    "question":"Como um loop FOR começa?",
+    "correctAnswer":2,
+    "options":["for (i = 0; i <= 5)","for (i = 0; i <= 5; i++)","for i = 1 to 5","for (i <= 5) then i++","i++ for(i = 0; i <= 5)"]
+  },
+  {
+    "question":"Qual é a maneira correta de escrever um array JavaScript?",
+    "correctAnswer":3,
+    "options":["var colors = 'red', 'green', 'blue'","var colors = (1:'red', 2:'green', 3:'blue')","var colors = ['red', 'green', 'blue']","var colors = [1:'red', 2:'green', 3:'blue']","var colors = {'red', 2:'green', 3:'blue'}"]
+  }
+]

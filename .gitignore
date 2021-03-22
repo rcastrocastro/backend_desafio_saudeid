@@ -1,3 +1,5 @@
 node_modules
 swagger.yml
 yarn.lock
+package-lock.json
+settings.json

@@ -2,64 +2,17 @@ const mongoose = require('../../database')
 const bcrypt = require('bcryptjs');
 
 const QuizSchema = new mongoose.Schema({
-  question1: {
+  question: {
     type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
+    require: true,
   },
-  question2: {
+  correctAnswer: {
     type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
+    require: true,
   },
-  question3: {
+  candidateAnswer: {
     type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question4: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question5: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question7: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question8: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question9: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question10: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question11: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question12: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question13: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question14: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },
-  question15: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
-  },question2: {
-    type: String,
-    possibleValues: ['1', '2', '3', '4', '5']
+    require: true,
   },
   user:{
     type: mongoose.Schema.Types.ObjectId,
