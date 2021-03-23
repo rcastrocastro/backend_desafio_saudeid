@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "go": "npx run src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +18,8 @@
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "5.11.15",
-    "nodemailer": "^6.4.18",
+    "mongoose": "^5.11.18",
+    "nodemailer": "^6.5.0",
     "nodemailer-express-handlebars": "^4.0.0",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
