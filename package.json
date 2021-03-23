@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx run src/index.js"
+    "start": "node src/index.js",
+    "go": "npx run src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,8 @@
     "nodemailer": "^6.5.0",
     "nodemailer-express-handlebars": "^4.0.0",
     "nodemon": "^2.0.7",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "swagger-jsdoc": "^7.0.0-rc.6",
+    "swagger-ui-express": "^4.1.6"
   }
 }

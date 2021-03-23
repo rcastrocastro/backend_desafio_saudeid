@@ -1,0 +1,741 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API - Desafio QA",
+    "description": "API desenvolvida para elaborar os testes automatizados dos candidados as vagas de QA",
+    "version": "0.1.9"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:3001"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "End points responsáveis por criar e autenticar os usuários"
+    },
+    {
+      "name": "Customers",
+      "description": "End points responsáveis por gerenciar os dados dos clientes"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Create a new users.",
+        "description": "End point para criação dos usuários (sign up)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestAuthRegister"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Retorna os dados do usuário criado junto com o token de acesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/ResponseUser"
+                    },
+                    "token": {
+                      "$ref": "#/components/schemas/ResponseUserToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User already exists / Registration failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/authenticate": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Realiza a autenticação do Usuário.",
+        "description": "End point para autenticação dos usuários (sign in)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestAuthAuthenticate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Retorna os dados do usuário criado junto com o token de acesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/ResponseUser"
+                    },
+                    "token": {
+                      "$ref": "#/components/schemas/ResponseUserToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User not found / Invalid password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Listar os cutomers",
+        "description": "End poins para listagem dos customers",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna a lista dos customers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customers": {
+                      "$ref": "#/components/schemas/ResponseCustomers"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error loading new customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Adiciona um novo customer",
+        "description": "End point para criar um novo customer",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestNewCustomer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Adiciona um novo customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customer": {
+                      "$ref": "#/components/schemas/ResponseNewCustomer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error creating new customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers/{id}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Listar customer por id",
+        "description": "End point para listar o customer por id.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna o customer conformer o id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customers": {
+                      "$ref": "#/components/schemas/ResponseCustomersId"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error loading customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Atualizar customer",
+        "description": "End point para atualizar customer pelo id",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minimum": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestNewCustomer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Atualiza o customer conforme id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customers": {
+                      "$ref": "#/components/schemas/ResponseCustomers"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error updateting customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Deletar customer",
+        "description": "End point para excluir customer pelo id",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleta o customer pelo id"
+          },
+          "400": {
+            "description": "Error deleting customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "RequestAuthRegister": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "format": "password"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password"
+        ]
+      },
+      "RequestAuthAuthenticate": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "format": "password"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "RequestNewCustomer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "cell_phone": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "marital_status": {
+            "type": "string"
+          },
+          "sons": {
+            "type": "string"
+          },
+          "how_many": {
+            "type": "string"
+          },
+          "address": {
+            "$ref": "#/components/schemas/RequestAddressCustomer"
+          }
+        },
+        "required": [
+          "name",
+          "last_name",
+          "birth_date",
+          "email",
+          "gender",
+          "marital_status",
+          "sons",
+          "ho_many"
+        ]
+      },
+      "RequestAddressCustomer": {
+        "$ref": "#/components/schemas/RequestBodyCustomersAddress"
+      },
+      "RequestBodyCustomersAddress": {
+        "properties": {
+          "zip_code": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "complement": {
+            "type": "string"
+          },
+          "neighborhood": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "zip_code",
+          "street",
+          "number",
+          "neighborhood",
+          "city",
+          "state"
+        ]
+      },
+      "ResponseCustomers": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ResponseCustomersAddress"
+        }
+      },
+      "ResponseCustomersAddress": {
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/ResponseBodyCustomersAddress"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "cell_phone": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "marital_status": {
+            "type": "string"
+          },
+          "sons": {
+            "type": "string"
+          },
+          "how_many": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/ResponseUserBody"
+          },
+          "createAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "_v": {
+            "type": "integer"
+          }
+        }
+      },
+      "ResponseBodyCustomersAddress": {
+        "properties": {
+          "zip_code": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "complement": {
+            "type": "string"
+          },
+          "neighborhood": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseNewCustomer": {
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "cell_phone": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "marital_status": {
+            "type": "string"
+          },
+          "sons": {
+            "type": "string"
+          },
+          "how_many": {
+            "type": "string"
+          },
+          "address": {
+            "$ref": "#/components/schemas/ResponseBodyAddressNewCustomer"
+          },
+          "user": {
+            "type": "string"
+          },
+          "creatAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "_v": {
+            "type": "integer"
+          }
+        }
+      },
+      "ResponseBodyAddressNewCustomer": {
+        "properties": {
+          "zip_code": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "complement": {
+            "type": "string"
+          },
+          "neighborhood": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        }
+      },
+      "ResponseCustomersId": {
+        "$ref": "#/components/schemas/ResponseCustomersAddress"
+      },
+      "ResponseUser": {
+        "$ref": "#/components/schemas/ResponseUserBody"
+      },
+      "ResponseUserBody": {
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "creatAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "_v": {
+            "type": "integer"
+          }
+        }
+      },
+      "ResponseBodyUserCustomer": {
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "creatAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "_v": {
+            "type": "integer"
+          }
+        }
+      },
+      "ResponseUserToken": {
+        "type": "string",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+let q = [
+  {
+      'Q':'Command for creating the project structure in Cucumber?',
+      'CERTA':4,
+      'OPCOES':['rspec --start','gherkin --init','cucumber --start','cucumber --init','ruby --start']
+  },
+  {
+      'Q':'What is the correct way to write a JavaScript array?',
+      'CERTA':3,
+      'OPCOES':['var colors = "red", "green", "blue"','var colors = (1:"red", 2:"green", 3:"blue")','var colors = ["red", "green", "blue"]','var colors = [1:"red", 2:"green", 3:"blue"]','var colors = {"red", 2:"green", 3:"blue"}']
+  },
+  {
+      'Q':'In which file can we create our scripts in Cypress?',
+      'CERTA':3,
+      'OPCOES':['env','file','package','node','description']
+  },
+  {
+      'Q':'What is the name of the Ruby package manager?',
+      'CERTA':2,
+      'OPCOES':['npm','bundler','yarn','rubler','ant']
+  },
+  {
+      'Q':'How does a FOR loop start in Js?',
+      'CERTA':2,
+      'OPCOES':['for (i = 0; i <= 5)','for (i = 0; i <= 5; i++)','for i = 1 to 5','for (i <= 5) then i++','i++ for(i = 0; i <= 5)']
+  },
+  {
+      'Q':'Has a parameter that is a callback function in Cypress',
+      'CERTA':1,
+      'OPCOES':['beforeEach','afterAll','enabled','describeEach','embedAll']
+  },
+  {
+      'Q':'Command to install project dependencies in Ruby?',
+      'CERTA':5,
+      'OPCOES':['rspec install','bundle start','ruby start','npm init','bundle install']
+  },
+  {
+      'Q':'How to write an IF statement in JavaScript?',
+      'CERTA':1,
+      'OPCOES':['if (i == 5)','if i = 5 then','if i == 5 then','if i = 5 :','case i = 5 then']
+  },
+  {
+      'Q':'Used to create a test case in Cypress',
+      'CERTA':5,
+      'OPCOES':['at','go','on','start','it']
+  },
+  {
+      'Q':'Complete with the correct term. cucumber ____ @ scenario1, @ scenario2, @ scenario3',
+      'CERTA':2,
+      'OPCOES':['-keys','--tags','-scene','--keys','-tags']
+  },
+  {
+      'Q':'How do you create a function in JavaScript?',
+      'CERTA':3,
+      'OPCOES':['function:myFunction()','function = myFunction()','function myFunction()','function = new myFunction()','function = new "myFunction()"']
+  },
+  {
+      'Q':'Retrieves an element on the screen that contains a defined character string in Cypress',
+      'CERTA':4,
+      'OPCOES':['hold','have','stifle','contains','get']
+  },
+  {
+      'Q':'Executed before or after starting the execution of a scenario in Cucumber',
+      'CERTA':3,
+      'OPCOES':['setup','precode','hooks','kit','master']
+  },
+  {
+      'Q':'How do you write "Hello World" in an alert box in Js?',
+      'CERTA':2,
+      'OPCOES':['msg("Hello World");','alert("Hello World");','alertBox("Hello World");','print("Hello World");','show("Hello World");']
+  },
+  {
+      'Q':'Are scripts executed before the request is sent in Postman',
+      'CERTA':4,
+      'OPCOES':['before-script','before-all','previous-scripts','pre-request','fore-all']
+  },
+  {
+      'Q':'In Cucumber are types of reports generated during execution',
+      'CERTA':1,
+      'OPCOES':['pretty/progress','report/resume','beauty/resume','progress/report','dynamic/resume']
+  },
+  {
+      'Q':'Used to check if the text exists in the element in Capybara',
+      'CERTA':3,
+      'OPCOES':['it_content?','fill_in','has_content?','npm_in','fill_content?']
+  },
+  {
+      'Q':'Is a type of markup language',
+      'CERTA':2,
+      'OPCOES':['json','xml','ajax','asp','prototype']
+  },
+  {
+      'Q':'Command to generate report in Capybara',
+      'CERTA':2,
+      'OPCOES':['--resume','--out report','--ruby text','--out init','--bundle']
+  },
+  {
+      'Q':'It is associated with the page object',
+      'CERTA':3,
+      'OPCOES':['grouping','blend','encapsulation','arrangement','binding']
+  },
+  {
+      'Q':'What file does the gem install command reference in Capybara?',
+      'CERTA':5,
+      'OPCOES':['rspec','helper','index','hooks','gemfile']
+  },
+  {
+      'Q':'Known as Server authorization issued to the client.',
+      'CERTA':2,
+      'OPCOES':['auth','bearer','key','staff','holder']
+  },
+  {
+      'Q':'Command to access a url in Capybara',
+      'CERTA':2,
+      'OPCOES':['go_to','visit','browser','url_to','flow']
+  },
+  {
+      'Q':'Where do we group our requests in Postman?',
+      'CERTA':4,
+      'OPCOES':['group','joint','set','collection','compilation']
+  },
+  {
+      'Q':'Designed in RFC 4627 standard',
+      'CERTA':4,
+      'OPCOES':['ajax','xml','ecma','json','w3c']
+  }
+  ];
+  
